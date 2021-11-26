@@ -17,12 +17,16 @@ namespace Mi_primer_MVC.Web.Areas.Marketing.Controllers
             return View();
         }
 
-
+        public IActionResult ProductsViewModel() 
+        {
+            var products = GetJsonProducts();
+            return View(products);
+        }
 
 
         public IEnumerable<Product> GetJsonProducts() {
 
-            var folder = Path.Combine(Directory.GetCurrentDirectory(), "Areas\\Marketing\\Data\products.json");
+            var folder = Path.Combine(Directory.GetCurrentDirectory(), "Areas\\Marketing\\Data\\products.json");
 
             var Json = System.IO.File.ReadAllText(folder);
 
