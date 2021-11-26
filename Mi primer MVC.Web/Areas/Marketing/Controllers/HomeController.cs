@@ -23,6 +23,22 @@ namespace Mi_primer_MVC.Web.Areas.Marketing.Controllers
             return View(products);
         }
 
+        public IActionResult ProductsViewData()
+        {
+            var products = GetJsonProducts();
+            ViewData["ProductsList"] = products;
+            ViewData["FullName"] = "Jose Luis";
+            return View(products);
+        }
+
+        public IActionResult ProductsViewBag()
+        {
+            var products = GetJsonProducts();
+            ViewBag.ProductList = products;
+            return View();
+
+
+        }
 
         public IEnumerable<Product> GetJsonProducts() {
 
